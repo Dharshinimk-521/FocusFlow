@@ -8,6 +8,30 @@ Not just a todo app — everything you need in one place.
 
 ---
 
+## 📸 Screenshots
+
+### Dashboard
+
+![Dashboard](./screenshots/dashboard.png)
+
+### Tasks
+
+![Tasks](./screenshots/tasks.png)
+
+### Focus Timer
+
+![Focus](./screenshots/timer.png)
+
+### Analytics
+
+![Analytics](./screenshots/analytics.png)
+
+### Achievements
+
+![Achievements](./screenshots/achievements.png)
+
+🔗 **[Live Demo → focusflow.vercel.app](https://focus-flow-navy-alpha.vercel.app)**
+
 ## ✨ Features
 
 ### 📋 Tasks

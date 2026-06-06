@@ -25,7 +25,7 @@ dist-ssr
 
 # dependencies
 node_modules/
-
+.history/
 # build output
 dist/
 
