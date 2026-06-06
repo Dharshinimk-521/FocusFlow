@@ -1,0 +1,65 @@
+.theme-icon {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.theme-icon:hover{
+    transform:scale(1.1);
+    box-shadow:
+        0 0 10px white,
+        0 0 20px white;
+}
+
+.theme-icon svg{
+    width:26px;
+    height:26px;
+}
+
+.dark .theme-icon{
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+.light .theme-icon{
+    background:rgba(0,0,0,0.08);
+    color:black;
+}
+.dark{
+    background-color:#222222;
+    color:white;
+    min-height:100vh;
+    transition:0.3s ease;
+}
+
+.light{
+    background-color:#f5f5f5;
+    color:black;
+    min-height:100vh;
+    transition:0.3s ease;
+}
+.dark.container{
+    background:
+        linear-gradient(
+            135deg,
+            #222222,
+            #2f2f2f,
+            #1b3c73
+        );
+}
+
+.light.container{
+    background:
+        linear-gradient(
+            135deg,
+            #f5f5f5,
+            #dddddd,
+            #3b63a9
+        );
+}
