@@ -4,7 +4,9 @@ A clean, professional personal productivity dashboard built with React + Vite.
 
 Not just a todo app — everything you need in one place.
 
-![FocusFlow](https://focus-flow-navy-alpha.vercel.app/)
+### Live App
+
+🔗 **[Live Demo](https://focus-flow-navy-alpha.vercel.app/)**
 
 ---
 
