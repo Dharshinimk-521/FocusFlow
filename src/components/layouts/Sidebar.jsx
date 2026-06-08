@@ -2,7 +2,7 @@
 //links to all pages-aut adds active class when on that route
 //navlink is used to take u to another page n tells whether u are alr there
 import { NavLink } from 'react-router-dom';
-
+import { CalendarDays } from 'lucide-react';
 import { LayoutDashboard,
     CheckSquare,
     Flame,
@@ -15,6 +15,7 @@ function Sidebar (){
      const links = [
         { to: '/',             label: 'Dashboard',   icon: <LayoutDashboard size={18} /> },
         { to: '/tasks',        label: 'Tasks',       icon: <CheckSquare     size={18} /> },
+        { to: '/weekly',       label: 'Weekly',      icon: <CalendarDays    size={18} /> },
         { to: '/habits',       label: 'Habits',      icon: <Flame           size={18} /> },
         { to: '/focus',        label: 'Focus',       icon: <Timer           size={18} /> },
         { to: '/achievements', label: 'Achievements',icon: <Trophy          size={18} /> },

@@ -6,7 +6,8 @@ import {
     Flame,
     Timer,
     Trophy,
-    BarChart2
+    BarChart2,
+    CalendarDays
 } from 'lucide-react'; //icon lib for react
 
 function Navbar({theme,toggleTheme}) {
@@ -15,6 +16,7 @@ function Navbar({theme,toggleTheme}) {
     const pages = {
         '/':             { title: 'Dashboard',    icon: <LayoutDashboard size={20} /> },
         '/tasks':        { title: 'Tasks',        icon: <CheckSquare     size={20} /> },
+        '/weekly':       { title: 'Weekly Planner',icon: <CalendarDays   size={20} /> },
         '/habits':       { title: 'Habits',       icon: <Flame           size={20} /> },
         '/focus':        { title: 'Focus',        icon: <Timer           size={20} /> },
         '/achievements': { title: 'Achievements', icon: <Trophy          size={20} /> },

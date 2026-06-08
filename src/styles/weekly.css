@@ -1,0 +1,439 @@
+/* WEEKLY PLANNER*/
+
+.weekly-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 100%;
+    padding-bottom: 2rem;
+}
+
+/* ---- top goal + reward bar ---- */
+.weekly-top {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start; /*items align to the top*/
+    padding: 1rem 1.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.dark .weekly-top {
+    background: #111827;
+    border-color: #1f2937;
+}
+
+.weekly-goal-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.weekly-goal-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #378ADD;
+    text-transform: uppercase;
+}
+
+.weekly-goal-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a202c;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 4px 0;
+    width: 100%;
+    transition: border 0.2s;
+}
+
+.weekly-goal-input:focus {
+    border-color: #378ADD;
+}
+
+.dark .weekly-goal-input {
+    color: #f7fafc;
+    border-color: #2d3748;
+}
+
+.dark .weekly-goal-input:focus {
+    border-color: #378ADD;
+}
+
+/* ---- 7 day columns grid ---- */
+.weekly-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    align-items: start;
+}
+
+/* ---- single day column ---- */
+.week-col {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    overflow: hidden;
+    transition: border 0.2s;
+}
+
+.dark .week-col {
+    background: #111827;
+    border-color: #1f2937;
+}
+
+.week-col-today {
+    border-color: #378ADD;     /* highlight today column */
+}
+
+.dark .week-col-today {
+    border-color: #378ADD;
+}
+
+/* ---- column header ---- */
+.week-col-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px 8px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .week-col-header {
+    border-color: #1f2937;
+}
+
+.week-day-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a202c;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.dark .week-day-label {
+    color: #f7fafc;
+}
+
+.week-day-today {
+    color: #378ADD;
+}
+
+.today-badge {
+    font-size: 9px;
+    background: #378ADD;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+
+/* ---- task list inside column ---- */
+.week-task-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 8px;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+/* ---- single task row ---- */
+.week-task-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 4px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.week-task-item:hover {
+    background: #f7fafc;
+}
+
+.dark .week-task-item:hover {
+    background: #1f2937;
+}
+
+.week-task-done .week-task-text {
+    text-decoration: line-through;
+    color: #a0aec0;
+}
+
+/* ---- check button ---- */
+.week-task-check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid #cbd5e0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 10px;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0; /*btn dont shrink*/
+    padding: 0;/*remove default padding*/
+    line-height: 1;
+}
+
+.week-task-check.checked {
+    background: #378ADD;
+    border-color: #378ADD;
+    color: white;
+}
+
+/* ---- task text ---- */
+.week-task-text {
+    flex: 1;
+    font-size: 12px;
+    color: #1a202c;
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.4;
+}
+
+.dark .week-task-text {
+    color: #e2e8f0;
+}
+
+/* ---- delete button ---- */
+.week-task-delete {
+    width: 16px;
+    height: 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 10px;
+    color: #cbd5e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.15s;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.week-task-item:hover .week-task-delete {
+    opacity: 1;                 /* show delete only on hover */
+}
+
+.week-task-delete:hover {
+    color: #e53e3e;
+}
+
+/* ---- add input row at bottom ---- */
+.week-add-row {
+    display: flex;
+    gap: 4px;
+    padding: 6px 8px;
+    border-top: 1px solid #e2e8f0;
+    align-items:center;
+}
+
+.dark .week-add-row {
+    border-color: #1f2937;
+}
+
+.week-task-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    color: #718096;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 0;
+}
+
+.week-task-input::placeholder {
+    color: #a0aec0;
+}
+
+.dark .week-task-input {
+    color: #a0aec0;
+}
+
+.week-add-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #718096;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.week-add-btn:hover {
+    background: #378ADD;
+    border-color: #378ADD;
+    color: white;
+}
+
+/* ---- habit tracker section ---- */
+.habit-week-wrap {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dark .habit-week-wrap {
+    background: #111827;
+    border-color: #1f2937;
+}
+
+.habit-week-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.habit-week-day-labels {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+}
+
+.habit-day-lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #718096;
+    width: 28px;
+    text-align: center;
+}
+
+/* ---- single habit row ---- */
+.habit-week-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.habit-week-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #1a202c;
+    min-width: 120px;
+}
+
+.dark .habit-week-name {
+    color: #f7fafc;
+}
+
+.habit-week-checks {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+}
+
+/* ---- habit day cell ---- */
+.habit-week-cell {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: transparent;
+    transition: all 0.2s;
+}
+
+.dark .habit-week-cell {
+    border-color: #2d3748;
+}
+
+.habit-week-done {
+    background: #378ADD;
+    border-color: #378ADD;
+    color: white;
+}
+
+.habit-week-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #718096;
+    min-width: 48px;
+    text-align: right;
+}
+
+/* ---- bottom bar ---- */
+.weekly-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.dark .weekly-bottom {
+    background: #111827;
+    border-color: #1f2937;
+}
+
+.weekly-reset-btn {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #718096;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.weekly-reset-btn:hover {
+    border-color: #e53e3e;
+    color: #e53e3e;
+}
+
+.dark .weekly-reset-btn {
+    border-color: #2d3748;
+}
+
+.weekly-consistency {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #718096;
+}
+
+.consistency-val {
+    color: #378ADD;
+    font-weight: 700;
+}

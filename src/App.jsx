@@ -8,6 +8,7 @@ import Habits from './pages/Habits'
 import Focus from './pages/Focus'
 import Achievements from './pages/Achievements'
 import Analytics from './pages/Analytics'
+import Weekly from './pages/Weekly'
 
 import './styles/index.css'
 import './styles/theme.css'
@@ -28,6 +29,7 @@ function App() {
                         <Routes>
                             <Route path="/"             element={<Dashboard />} />
                             <Route path="/tasks"        element={<Tasks />} />
+                            <Route path="/weekly"       element={<Weekly />}/>
                             <Route path="/habits"       element={<Habits />} />
                             <Route path="/focus"        element={<Focus />} />
                             <Route path="/achievements" element={<Achievements />} />
