@@ -1,14 +1,12 @@
 // checks all badge conditions against real data
 // shows unlocked + locked badges
 
-import useLocalStorage from '../hooks/useLocalStorage'
+import useUser from '../hooks/useUser';
 import badges from '../data/badges'
 import BadgeCard from '../components/achievements/BadgeCard'
 
 function Achievements() {
-    const [tasks]  = useLocalStorage('tasks', [])
-    const [habits] = useLocalStorage('habits', [])
-    const sessions = Number(localStorage.getItem('focusSessions')) || 0
+    const { tasks, habits, sessions } = useUser();
 
     // data object passed to each badge condition
     const data = {
